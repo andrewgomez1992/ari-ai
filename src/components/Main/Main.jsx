@@ -34,24 +34,24 @@ const Main = () => {
             <div className="cards">
               <div className="card">
                 <p>Suggest beautiful places that Drew needs to take me to.</p>
-                <img src={assets.compass_icon} alt="" />
+                {/* <img src={assets.compass_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>
                   Tell me a story about a girl named Ari that never knows what
                   she wants to eat.
                 </p>
-                <img src={assets.bulb_icon} alt="" />
+                {/* <img src={assets.bulb_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>Would my boyfriend Drew still love me if I was a bug?</p>
-                <img src={assets.message_icon} alt="" />
+                {/* <img src={assets.message_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>
                   What is the best way to tell Drew that I want to go shopping?
                 </p>
-                <img src={assets.code_icon} alt="" />
+                {/* <img src={assets.code_icon} alt="" /> */}
               </div>
             </div>
           </>

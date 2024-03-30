@@ -2,6 +2,10 @@ import React, { useContext, useState } from "react";
 import "./sidebar.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
+import { RxQuestionMarkCircled } from "react-icons/rx";
+import { FaHistory, FaPlusSquare } from "react-icons/fa";
+import { MdOutlineSettings } from "react-icons/md";
+import { Divide as Hamburger } from "hamburger-react";
 
 const Sidebar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,18 +20,16 @@ const Sidebar = () => {
   const openMenu = () => {
     setMenuOpen((prevState) => !prevState);
   };
-
   return (
     <div className="sidebar">
       <div className="top">
-        <img
-          onClick={openMenu}
-          className="menu"
-          src={assets.menu_icon}
-          alt=""
+        <Hamburger
+          toggled={menuOpen}
+          toggle={setMenuOpen}
+          color="-webkit-linear-gradient(90deg, #6615c2, #ff5546)"
         />
         <div onClick={() => newChat()} className="new-chat">
-          <img src={assets.plus_icon} alt="" />
+          <FaPlusSquare size={20} color="#c4c7c5" />
           {menuOpen ? <p>New Chat</p> : null}
         </div>
         {menuOpen ? (
@@ -46,15 +48,15 @@ const Sidebar = () => {
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
-          <img src={assets.question_icon} alt="" />
+          <RxQuestionMarkCircled size={32} color="#c4c7c5" />
           {menuOpen ? <p>Help</p> : null}
         </div>
         <div className="bottom-item recent-entry">
-          <img src={assets.history_icon} alt="" />
+          <FaHistory size={30} color="#c4c7c5" />
           {menuOpen ? <p>Activity</p> : null}
         </div>
         <div className="bottom-item recent-entry">
-          <img src={assets.setting_icon} alt="" />
+          <MdOutlineSettings size={34} color="#c4c7c5" />
           {menuOpen ? <p>Settings</p> : null}
         </div>
       </div>
