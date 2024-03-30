@@ -48,6 +48,7 @@
 }
 
 .main .cards {
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -95,7 +96,7 @@
 }
 
 .search-box {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,6 +105,8 @@
     background-color: #202020;
     padding: 10px 20px;
     border-radius: 50px;
+    /* border: 2px solid white; */
+    /* z-index: 999; */
 }
 
 .search-box img {
@@ -166,7 +169,7 @@
 }
 
 .loader {
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -176,7 +179,7 @@
     border-radius: 4px;
     border: none;
     background-color: #f6f7f8;
-    background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+    background: linear-gradient(to right, #272727, #000000, #272727);
     background-size: 800px 50px;
     height: 20px;
     animation: loader 3s infinite linear;
@@ -222,3 +225,85 @@
     margin: 0 auto;
     background-color: green!important;
   }
+
+/* Styling for the main box */
+.box {
+    position: relative;
+    left: 5px;
+    width: 95%;
+    height: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    top: 48px;
+}
+
+/* Styling for the gradient animation on the main box */
+.box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a),
+        #0f0,
+        #ff0,
+        #0ff,
+        #f0f,
+        #0ff);
+    border-radius: 50%;
+    animation: rotating 4s linear infinite; /* Applying rotation animation */
+}
+
+/* Styling for the blurred gradient on the main box */
+.box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a),
+        #0f0,
+        #ff0,
+        #0ff,
+        #f0f,
+        #0ff);
+    /* border-radius:; */
+    animation: rotating 4s linear infinite; /* Applying rotation animation */
+    filter: blur(40px);
+    opacity: 0.75;
+}
+
+/* Styling for the inner span within the main box */
+.box span {
+    position: absolute;
+    inset: 4px;
+    /* background: #222; */
+    /* Setting background color */
+    border-radius: 50%;
+    z-index: -1;
+    /* opacity: 0; */
+    /* Uncomment to hide the inner span */
+}
+
+/* Custom property for the rotation angle */
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+/* Keyframes for the rotating animation */
+@keyframes rotating {
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg;
+    }
+}
+
+/* Styling for the text inside the nested box */
+.box .box1 span {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 34px;
+    font-family: "Pacifico", cursive;
+}

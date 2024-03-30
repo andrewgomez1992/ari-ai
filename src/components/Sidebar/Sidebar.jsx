@@ -26,7 +26,7 @@ const Sidebar = () => {
         <Hamburger
           toggled={menuOpen}
           toggle={setMenuOpen}
-          color="-webkit-linear-gradient(90deg, #6615c2, #ff5546)"
+          // color="-webkit-linear-gradient(90deg, #6615c2, #ff5546)"
         />
         <div onClick={() => newChat()} className="new-chat">
           <FaPlusSquare size={20} color="#c4c7c5" />

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
-import Bubbles from "../Bubbles";
+import SpinningLogo from "../SpinningLogo";
 
 const Main = () => {
   const {
@@ -14,6 +14,7 @@ const Main = () => {
     setInput,
     input,
   } = useContext(Context);
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   console.log("loading", loading);
 
@@ -32,23 +33,19 @@ const Main = () => {
               </p>
               <p>How can I help you today?</p>
             </div>
-            {/* <Bubbles /> */}
-
+            <SpinningLogo height={"50px"} width={"59px"} />
             <div className="cards">
               <div className="card">
                 <p>Suggest beautiful places that Drew needs to take me to.</p>
-                {/* <img src={assets.compass_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>
                   Tell me a story about a girl named Ari that never knows what
                   she wants to eat.
                 </p>
-                {/* <img src={assets.bulb_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>Would my boyfriend Drew still love me if I was a bug?</p>
-                {/* <img src={assets.message_icon} alt="" /> */}
               </div>
               <div className="card">
                 <p>
@@ -65,7 +62,7 @@ const Main = () => {
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
-              <img src={assets.gemini_icon} alt="" />
+              <SpinningLogo height={"30px"} width={"30px"} />
               {loading ? (
                 <div className="loader">
                   <hr />
@@ -80,6 +77,13 @@ const Main = () => {
         )}
 
         <div className="main-bottom">
+          <div className="box">
+            <span></span>
+            <div className="box1">
+              <span></span>
+            </div>
+          </div>
+
           <div className="search-box">
             <input
               onChange={(e) => setInput(e.target.value)}
@@ -95,6 +99,7 @@ const Main = () => {
               ) : null}
             </div>
           </div>
+
           <p className="bottom-info">
             Ari may provide false information, so please, take it all lightly,
             despite what she says, she does not know everything.
