@@ -22,12 +22,18 @@
 }
 
 .main-container {
+    align-items: center;
     max-width: 860px;
     margin: auto;
     color: #c4c7c5;
 }
 
 .greet {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     margin: 50px 0px;
     font-size: 56px;
     color: #c4c7c5;
@@ -42,31 +48,29 @@
 }
 
 .main .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
     padding: 20px;
-}
-
-.main .card {
-    height: 200px;
+  }
+  
+  .main .card {
+    flex: 1 0 calc(50% - 20px); /* Two columns with gap */
+    max-width: calc(50% - 20px); /* Maximum width for each card */
     padding: 15px;
     background-color: #202020;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
-}
-
-.main .card img {
-    width: 35px;
-    padding: 5px;
-    position: absolute;
-    justify-content: end;
-    background-color: #121212;
-    border-radius: 20px;
-    bottom: 10px;
-    right: 10px;
-}
+  }
+  
+  @media (max-width: 768px) {
+    .main .card {
+      flex-basis: calc(100% - 20px); /* Single column with gap on smaller screens */
+      max-width: calc(100% - 20px); /* Maximum width for each card */
+    }
+  }
 
 .main .card p {
     color: #c4c7c5;
@@ -81,21 +85,22 @@
 .main-bottom {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    max-width: 900px;
+    width: 97%;
+    max-width: 850px;
     padding: 0px 20px;
-    margin: auto;
 }
 
-/* .card p:hover {
+.card p:hover {
     color: #c4c7c5;
-} */
+}
 
 .search-box {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    /* gap: 20px; */
+    /* width: inherit; */
     background-color: #202020;
     padding: 10px 20px;
     border-radius: 50px;
@@ -115,6 +120,7 @@
     padding: 8px;
     font-size: 18px;
     caret-color: #c4c7c5;
+    color: #fff;
 }
 
 .search-box div {
@@ -192,7 +198,7 @@
 
 @media (max-width: 600px) {
     .main-bottom input {
-        flex: none;
+        /* flex: none; */
         /* width: 150px; */
     }
     .main-bottom img {
@@ -208,3 +214,11 @@
         margin: 0;
     }
 }
+
+/* Animated Bubbles */
+#container {
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: green!important;
+  }

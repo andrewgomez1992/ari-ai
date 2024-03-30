@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
+import Bubbles from "../Bubbles";
 
 const Main = () => {
   const {
@@ -31,6 +32,8 @@ const Main = () => {
               </p>
               <p>How can I help you today?</p>
             </div>
+            {/* <Bubbles /> */}
+
             <div className="cards">
               <div className="card">
                 <p>Suggest beautiful places that Drew needs to take me to.</p>

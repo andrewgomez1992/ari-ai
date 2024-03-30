@@ -48,15 +48,15 @@ const Sidebar = () => {
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
-          <RxQuestionMarkCircled size={32} color="#c4c7c5" />
+          <RxQuestionMarkCircled size={26} color="#c4c7c5" />
           {menuOpen ? <p>Help</p> : null}
         </div>
         <div className="bottom-item recent-entry">
-          <FaHistory size={30} color="#c4c7c5" />
+          <FaHistory size={26} color="#c4c7c5" />
           {menuOpen ? <p>Activity</p> : null}
         </div>
         <div className="bottom-item recent-entry">
-          <MdOutlineSettings size={34} color="#c4c7c5" />
+          <MdOutlineSettings size={28} color="#c4c7c5" />
           {menuOpen ? <p>Settings</p> : null}
         </div>
       </div>
