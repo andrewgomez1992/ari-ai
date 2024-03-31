@@ -34,10 +34,10 @@ const Main = () => {
             </div>
             <SpinningLogo height={"50px"} width={"59px"} />
             <div className="cards">
-              <div className="card">
+              <div className="card hidden">
                 <p>Suggest beautiful places that Drew needs to take me to.</p>
               </div>
-              <div className="card">
+              <div className="card hidden">
                 <p>
                   Tell me a story about a girl named Ari that never knows what
                   she wants to eat.
@@ -46,7 +46,7 @@ const Main = () => {
               <div className="card hidden">
                 <p>Would my boyfriend Drew still love me if I was a bug?</p>
               </div>
-              <div className="card">
+              <div className="card hidden">
                 <p>
                   What is the best way to tell Drew that I want to go shopping?
                 </p>
