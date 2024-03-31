@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./sidebar.css";
-import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { FaHistory, FaPlusSquare } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 import { MdOutlineSettings } from "react-icons/md";
 import { Divide as Hamburger } from "hamburger-react";
 
@@ -17,17 +17,10 @@ const Sidebar = () => {
     await onSent(prompt);
   };
 
-  const openMenu = () => {
-    setMenuOpen((prevState) => !prevState);
-  };
   return (
     <div className="sidebar">
       <div className="top">
-        <Hamburger
-          toggled={menuOpen}
-          toggle={setMenuOpen}
-          // color="-webkit-linear-gradient(90deg, #6615c2, #ff5546)"
-        />
+        <Hamburger toggled={menuOpen} toggle={setMenuOpen} />
         <div onClick={() => newChat()} className="new-chat">
           <FaPlusSquare size={20} color="#c4c7c5" />
           {menuOpen ? <p>New Chat</p> : null}
@@ -38,7 +31,7 @@ const Sidebar = () => {
             {previousPrompts?.map((item, index) => {
               return (
                 <div onClick={() => loadPrompt(item)} className="recent-entry">
-                  <img src={assets.message_icon} alt="" />
+                  <FaMessage color="#6615c2" />
                   <p>{item.slice(0, 18)} ...</p>
                 </div>
               );

@@ -73,6 +73,12 @@
     }
   }
 
+  @media (max-width: 768px) {
+    .main .cards .hidden {
+      display: none;
+    }
+  }
+
 .main .card p {
     color: #c4c7c5;
     font-size: 17px;
@@ -155,6 +161,16 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.result-title p {
+    /* color: #fff; */
+    /* border: 2px solid grey;
+    border-radius:5px;
+    padding: 10px 10px 10px 5px;
+    text-align: left; */
+    position: relative;
+    right: 5px;
 }
 
 .result img {
@@ -263,7 +279,6 @@
         #0ff,
         #f0f,
         #0ff);
-    /* border-radius:; */
     animation: rotating 4s linear infinite; /* Applying rotation animation */
     filter: blur(40px);
     opacity: 0.75;
@@ -273,12 +288,8 @@
 .box span {
     position: absolute;
     inset: 4px;
-    /* background: #222; */
-    /* Setting background color */
     border-radius: 50%;
     z-index: -1;
-    /* opacity: 0; */
-    /* Uncomment to hide the inner span */
 }
 
 /* Custom property for the rotation angle */

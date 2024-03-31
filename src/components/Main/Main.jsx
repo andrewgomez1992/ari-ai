@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./main.css";
 import { assets } from "../../assets/assets";
+import { IoSendSharp } from "react-icons/io5";
+import { FaMicrophoneSlash } from "react-icons/fa";
 import { Context } from "../../context/Context";
 import SpinningLogo from "../SpinningLogo";
 
@@ -14,9 +16,6 @@ const Main = () => {
     setInput,
     input,
   } = useContext(Context);
-  const [isInputFocused, setIsInputFocused] = useState(false);
-
-  console.log("loading", loading);
 
   return (
     <div className="main">
@@ -44,14 +43,13 @@ const Main = () => {
                   she wants to eat.
                 </p>
               </div>
-              <div className="card">
+              <div className="card hidden">
                 <p>Would my boyfriend Drew still love me if I was a bug?</p>
               </div>
               <div className="card">
                 <p>
                   What is the best way to tell Drew that I want to go shopping?
                 </p>
-                {/* <img src={assets.code_icon} alt="" /> */}
               </div>
             </div>
           </>
@@ -90,12 +88,17 @@ const Main = () => {
               value={input}
               type="text"
               placeholder="Enter a prompt here"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  onSent();
+                  setInput("");
+                }
+              }}
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
+              <FaMicrophoneSlash size={25} style={{ cursor: "pointer" }} />
               {input ? (
-                <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+                <IoSendSharp size={23} onClick={() => onSent()} />
               ) : null}
             </div>
           </div>
