@@ -1,0 +1,129 @@
+.sidebar {
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #202020;
+    padding: 18px 15px;
+    align-items: center;
+}
+
+.sidebar img {
+    width: 25px;
+}
+
+.sidebar .menu{
+    display: block;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+}
+
+.sidebar .new-chat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    gap: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    top: 10px;
+    border-radius: 10px;
+}
+
+.sidebar .new-chat:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.sidebar .new-chat:active {
+    color: #000
+}
+
+.sidebar .new-chat:active:after {
+    background: transparent;
+}
+
+.sidebar .new-chat:hover:before {
+    opacity: 1;
+}
+
+.sidebar .new-chat:after {
+    z-index: -1;
+    /* content: 'New Chat'; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.5s;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.sidebar .recent-title {
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    color: #c4c7c5;
+}
+
+.recent-entry {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 10px;
+    color: #c4c7c5;
+    cursor: pointer;
+    align-items: center;
+}
+
+.recent-entry:hover {
+    background-color: #121212;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-item {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .sidebar{
+        display: none;
+    }
+}

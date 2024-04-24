@@ -1,0 +1,320 @@
+.main {
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    position: relative;
+}
+
+.main .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    background: -webkit-linear-gradient(90deg, #6615c2, #ff5546);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.main-container {
+    align-items: center;
+    max-width: 860px;
+    margin: auto;
+    color: #c4c7c5;
+}
+
+.greet {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0px;
+    font-size: 56px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.greet span {
+    background: -webkit-linear-gradient(15deg, #6615c2, #ff5546);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .main .card {
+    flex: 1 0 calc(50% - 20px); /* Two columns with gap */
+    max-width: calc(50% - 20px); /* Maximum width for each card */
+    padding: 15px;
+    background-color: #202020;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .main .card {
+      flex-basis: calc(100% - 20px); /* Single column with gap on smaller screens */
+      max-width: calc(100% - 20px); /* Maximum width for each card */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main .cards .hidden {
+      display: none;
+    }
+  }
+
+.main .card p {
+    color: #c4c7c5;
+    font-size: 17px;
+}
+
+.main .card:hover {
+    background-color: #0e0e0e;
+    border: 2px;
+}
+
+.main-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 97%;
+    max-width: 850px;
+    padding: 0px 20px;
+}
+
+.card p:hover {
+    color: #c4c7c5;
+}
+
+.search-box {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 20px; */
+    /* width: inherit; */
+    background-color: #202020;
+    padding: 10px 20px;
+    border-radius: 50px;
+    /* border: 2px solid white; */
+    /* z-index: 999; */
+}
+
+.search-box img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+    caret-color: #c4c7c5;
+    color: #fff;
+}
+
+.search-box div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main .bottom-info {
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+    color: #9b9b9b;
+}
+
+.result {
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+.result-title {
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.result-title p {
+    /* color: #fff; */
+    /* border: 2px solid grey;
+    border-radius:5px;
+    padding: 10px 10px 10px 5px;
+    text-align: left; */
+    position: relative;
+    right: 5px;
+}
+
+.result img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+.result-data {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.loader {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loader hr {
+    border-radius: 4px;
+    border: none;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #272727, #000000, #272727);
+    background-size: 800px 50px;
+    height: 20px;
+    animation: loader 3s infinite linear;
+}
+@keyframes loader {
+     0%{
+        background-position: -800px 0px;
+     }
+     100%{
+        background-position: 800px 0px;
+     }
+}
+
+.result-data p {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .main-bottom input {
+        /* flex: none; */
+        /* width: 150px; */
+    }
+    .main-bottom img {
+        width: 20px;
+    }
+    .search-box {
+        padding: 5px 10px;
+    }
+    .search-box div {
+        gap: 5px;
+    }
+    .greet {
+        margin: 0;
+    }
+}
+
+/* Animated Bubbles */
+#container {
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: green!important;
+  }
+
+/* Styling for the main box */
+.box {
+    position: relative;
+    left: 5px;
+    width: 95%;
+    height: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    top: 48px;
+}
+
+/* Styling for the gradient animation on the main box */
+.box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a),
+        #0f0,
+        #ff0,
+        #0ff,
+        #f0f,
+        #0ff);
+    border-radius: 50%;
+    animation: rotating 4s linear infinite; /* Applying rotation animation */
+}
+
+/* Styling for the blurred gradient on the main box */
+.box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a),
+        #0f0,
+        #ff0,
+        #0ff,
+        #f0f,
+        #0ff);
+    animation: rotating 4s linear infinite; /* Applying rotation animation */
+    filter: blur(40px);
+    opacity: 0.75;
+}
+
+/* Styling for the inner span within the main box */
+.box span {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Custom property for the rotation angle */
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+/* Keyframes for the rotating animation */
+@keyframes rotating {
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg;
+    }
+}
+
+/* Styling for the text inside the nested box */
+.box .box1 span {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 34px;
+    font-family: "Pacifico", cursive;
+}
