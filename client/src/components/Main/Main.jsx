@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import axios from "axios";
 import "./main.css";
 import { assets } from "../../assets/assets";
 import { IoSendSharp } from "react-icons/io5";
 import { FaMicrophoneSlash } from "react-icons/fa";
 import { Context } from "../../context/Context";
 import SpinningLogo from "../SpinningLogo";
+import { formatDateTime } from "../../utils/formatDate";
 
 const Main = () => {
   const {
@@ -16,6 +18,39 @@ const Main = () => {
     setInput,
     input,
   } = useContext(Context);
+
+  console.log("recentPrompt", recentPrompt);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const fakeName = "John Doe";
+    const currentTime = formatDateTime(new Date());
+
+    // Check if input is empty and handle accordingly
+    if (!input) {
+      console.error("Input field is empty");
+      return; // Exit the function if input is empty
+    }
+
+    const formData = {
+      prompt: input,
+      user: fakeName,
+      time: currentTime,
+      // result: resultData,
+    };
+
+    try {
+      await axios.post(import.meta.env.VITE_API_SERVER, formData);
+      console.log("Item added to database", formData);
+
+      // Reset input field and call onSent after successful submission
+      setInput("");
+      onSent();
+    } catch (error) {
+      console.error("Error adding item to database:", error);
+    }
+  };
 
   return (
     <div className="main">
@@ -90,16 +125,14 @@ const Main = () => {
               placeholder="Enter a prompt here"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  onSent();
+                  handleSubmit();
                   setInput("");
                 }
               }}
             />
             <div>
               <FaMicrophoneSlash size={25} style={{ cursor: "pointer" }} />
-              {input ? (
-                <IoSendSharp size={23} onClick={() => onSent()} />
-              ) : null}
+              {input ? <IoSendSharp size={23} onClick={handleSubmit} /> : null}
             </div>
           </div>
 

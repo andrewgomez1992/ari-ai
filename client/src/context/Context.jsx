@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import axios from "axios";
 import runChat from "../config/gemini";
 
 export const Context = createContext();
@@ -36,6 +37,7 @@ const ContextProvider = (props) => {
       setPreviousPrompts((prev) => [...prev, input]);
       setRecentPrompt(input);
       response = await runChat(input);
+      setResultData(response);
     }
 
     let responseArray = response.split("**");
@@ -53,6 +55,7 @@ const ContextProvider = (props) => {
       const nextWord = newResponseArray[i];
       delayParam(i, nextWord + " ");
     }
+
     setLoading(false);
     setInput("");
   };
@@ -69,6 +72,7 @@ const ContextProvider = (props) => {
     input,
     setInput,
     newChat,
+    setResultData,
   };
 
   return (
